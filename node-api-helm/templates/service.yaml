@@ -5,7 +5,7 @@ metadata:
   labels:
     app: node-api
 spec:
-  type: node-api
+  type: ClusterIP
   ports:
     - port: 3000
       targetPort: http
