@@ -12,4 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "node-api-helm.selectorLabels" . | nindent 4 }}
+    # {{- include "node-api-helm.selectorLabels" . | nindent 4 }}
+    app: node-api-test-node-api-helm
