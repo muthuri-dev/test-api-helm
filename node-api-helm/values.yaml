@@ -61,14 +61,14 @@ ingress:
   enabled: true
   className: "traefik"
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: :letsencrypt-prod"
+    kubernetes.io/ingress.class: "traefik"
     kubernetes.io/tls-acme: "true"
   hosts:
     - host: test.graphit.software
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: 
    - secretName: chart-test-tls
      hosts:
