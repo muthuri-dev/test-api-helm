@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-api
+  name: {{ include "node-api-helm.fullname" . }}
   labels:
-    app: node-api
+    {{- include "node-api-helm.labels" . | nindent 4 }}
 spec:
-  type: ClusterIP
+  type: {{ .Values.service.type }}
   ports:
-    - port: 3000
+    - port: {{ .Values.service.port }}
       targetPort: http
       protocol: TCP
       name: http
   selector:
-    # {{- include "node-api-helm.selectorLabels" . | nindent 4 }}
-    app: node-api-test-node-api-helm
+    {{- include "node-api-helm.selectorLabels" . | nindent 4 }}
